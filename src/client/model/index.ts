@@ -1,4 +1,4 @@
-import { Prop, raw, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 @Schema()
 export class Client extends Document {
@@ -36,14 +36,6 @@ export class Client extends Document {
 
   @Prop([{ name: String }])
   listas: string[];
-
-  @Prop(
-    raw({
-      firstName: { type: String },
-      lastName: { type: String },
-    }),
-  )
-  details: Record<string, any>;
 }
 
 export const ClientSchema = SchemaFactory.createForClass(Client);
